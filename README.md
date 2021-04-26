@@ -58,8 +58,7 @@ You can now go to http://localhost:5000 and you should see the Swagger for the A
 If you experience any problems with postgres setup, you may need to clean up your system, sometimes it happens, mostly if you have other APIs that use the same name conventions. You can try `make stop` and `docker system prune`, it's a bit harsh, but it'll clean up your docker system. After that everything should run smoothly.
 
 ## Swagger
-Now that you have access to the Swagger of the API, you'll have access to the following namespaces
-- test
+Now that you have access to the Swagger of the API, you'll have access to the following namespaces- test
 - data
 - products
 
@@ -70,6 +69,32 @@ To upload data to the backend, you can use the data endpoint and upload the data
 For the frontend, a simple React interface was created, as the Swagger API already satisfied the requirement for a interface that has a list of all resources and has the hability to consume it, the React side of it, was built more towards visualization and searching. It would be a nice feature in the future to add ElasticSearch to make a more robust search engine, today it's only using Javascript basic functions to make a filter.
 
 To run the frontend, go to the front folder, and as the API, run `make run-app`, and that's pretty much it, feel free to play around now.
+
+
+## How to deploy the application
+
+### Backend
+
+Create an account on [Heroku](https://dashboard.heroku.com/apps), download the [heroku cli](https://devcenter.heroku.com/articles/heroku-cli) 
+
+Use to log the heroku cli
+
+`heroku login` 
+
+Use `heroku create` to create an application. This will output you a url like 
+
+https://secure-temple-41809.herokuapp.com/
+
+Guard the value "secure-temple-41809", you'll use this a lot
+
+After this, you can follow the Makefile, changing secure-temple-41809 for your app
+
+You need to run every command from hpostgres to hseed
+
+
+### Frontend 
+
+Create an account in https://www.netlify.com/ , build your react application and drag the build folder to netfily, is as simple as that!
 
 
 ---

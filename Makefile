@@ -65,36 +65,36 @@ hlogin:
 	heroku container:login 
 
 hpostgres:
-	heroku addons:create heroku-postgresql:hobby-dev --app murmuring-beyond-76885
+	heroku addons:create heroku-postgresql:hobby-dev --app secure-temple-41809
 
 hregistry:
-	docker build -f Dockerfile.prod -t registry.heroku.com/murmuring-beyond-76885/web .
+	docker build -f Dockerfile.prod -t registry.heroku.com/secure-temple-41809/web .
 
 hrun-local:
-	docker run --name flask-tdd -e "PORT=8765" -p 5005:8765 registry.heroku.com/murmuring-beyond-76885/web:latest
+	docker run --name flask-tdd -e "PORT=8765" -p 5005:8765 registry.heroku.com/secure-temple-41809/web:latest
 
 hremove:
 	docker rm flask-tdd
 
 hpush:
-	docker push registry.heroku.com/murmuring-beyond-76885/web:latest
+	docker push registry.heroku.com/secure-temple-41809/web:latest
 
 hrelease:
-	heroku container:release web --app murmuring-beyond-76885
+	heroku container:release web --app secure-temple-41809
 
 hlogs:
-	heroku logs --app murmuring-beyond-76885
+	heroku logs --app secure-temple-41809
 
 hcreatedb:
-	heroku run python manage.py recreate_db --app murmuring-beyond-76885
+	heroku run python manage.py recreate_db --app secure-temple-41809
 
 hseed:
-	heroku run python manage.py seed_db --app murmuring-beyond-76885
+	heroku run python manage.py seed_db --app secure-temple-41809
 
 
 # CI
 htoken:
 	heroku auth:token
 
-## app url https://murmuring-beyond-76885.herokuapp.com
+## app url https://secure-temple-41809.herokuapp.com
 
